@@ -15,6 +15,11 @@
     <module>pos-repository</module>
     <module>pos-common</module>
     <module>pos-endpoint</module>
+    <module>erpint-endpoint</module>
+    <module>erpint-entrypoint</module>
+    <module>erpint-core</module>
+    <module>erpint-config</module>
+    <module>erpint-repository</module>
   </modules>
 
 	<build>
