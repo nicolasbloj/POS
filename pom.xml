@@ -10,6 +10,7 @@
   
   <modules>
     <module>pos-business</module>
+    <module>pos-config</module>
   </modules>
 
 	<build>
