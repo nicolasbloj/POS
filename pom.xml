@@ -11,6 +11,9 @@
   <modules>
     <module>pos-business</module>
     <module>pos-config</module>
+    <module>pos-core</module>
+    <module>pos-repository</module>
+    <module>pos-common</module>
   </modules>
 
 	<build>
