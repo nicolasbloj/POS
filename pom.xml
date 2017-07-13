@@ -14,6 +14,7 @@
     <module>pos-core</module>
     <module>pos-repository</module>
     <module>pos-common</module>
+    <module>pos-endpoint</module>
   </modules>
 
 	<build>
