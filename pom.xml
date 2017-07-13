@@ -1,31 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>com.nab</groupId>
-  <artifactId>pos</artifactId>
-  <version>1.0.0.0</version>
-  <packaging>pom</packaging>
-  <name>pos</name>
-  
-  <modules>
-    <module>pos-business</module>
-    <module>pos-config</module>
-    <module>pos-core</module>
-    <module>pos-repository</module>
-    <module>pos-common</module>
-    <module>pos-endpoint</module>
-    <module>erpint-endpoint</module>
-    <module>erpint-entrypoint</module>
-    <module>erpint-core</module>
-    <module>erpint-config</module>
-    <module>erpint-repository</module>
-  </modules>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.nab</groupId>
+	<artifactId>pos</artifactId>
+	<version>1.0.0.0</version>
+
+	<packaging>pom</packaging>
+
+	<name>pos</name>
+
+	<developers>
+		<developer>
+			<id>nab</id>
+			<name>Nicolas Bloj</name>
+			<email>nicolasbloj@gmail.com</email>
+			<url>http://nicolasbloj.com</url>
+			<roles>
+				<role>developer</role>
+			</roles>
+		</developer>
+	</developers>
+
+
+	<scm>
+		<url>https://github.com/nicolasbloj/POS</url>
+	</scm>
+
+
+	<modules>
+		<module>pos-business</module>
+		<module>pos-config</module>
+		<module>pos-core</module>
+		<module>pos-repository</module>
+		<module>pos-common</module>
+		<module>pos-endpoint</module>
+		<module>erpint-endpoint</module>
+		<module>erpint-entrypoint</module>
+		<module>erpint-core</module>
+		<module>erpint-config</module>
+		<module>erpint-repository</module>
+	</modules>
+
+	<dependencies>
+
+		<!-- ======================================= LOGGING ====================================== -->
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.17</version>
+			<!-->scope>runtime</scope -->
+		</dependency>
+
+	</dependencies>
 
 	<build>
 		<finalName>pos</finalName>
 		<plugins>
-			
+
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.5</version>
@@ -34,7 +67,7 @@
 					<target>1.8</target>
 				</configuration>
 			</plugin>
-			
+
 		</plugins>
 	</build>
 
