@@ -23,7 +23,7 @@
 
 
 	<dependencies>
-		
+
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-core</artifactId>
@@ -35,7 +35,7 @@
 			<artifactId>spring-web</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
@@ -48,8 +48,13 @@
 			<artifactId>pos-config</artifactId>
 			<version>1.0.0.0</version>
 		</dependency>
+		<dependency>
+			<groupId>com.nab</groupId>
+			<artifactId>pos-core</artifactId>
+			<version>1.0.0.0</version>
+		</dependency>
 	</dependencies>
-	
+
 	<build>
 		<finalName>pos-endpoint</finalName>
 		<sourceDirectory>src</sourceDirectory>

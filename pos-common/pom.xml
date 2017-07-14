@@ -17,6 +17,11 @@
   </properties>
   
   <dependencies>
+  <dependency>
+  	<groupId>com.nab</groupId>
+  	<artifactId>pos-business</artifactId>
+  	<version>1.0.0.0</version>
+  </dependency>
   </dependencies>
   
   <build>
