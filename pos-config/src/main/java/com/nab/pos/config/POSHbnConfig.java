@@ -1,5 +1,6 @@
 package com.nab.pos.config;
 
+
 import java.beans.PropertyVetoException;
 import java.util.Properties;
 import java.util.logging.Level;
@@ -22,8 +23,9 @@ import com.mchange.v2.c3p0.ComboPooledDataSource;
 
 @Configuration
 @EnableTransactionManagement
-@ComponentScan({"com.nab.posprototype.component"})
-@PropertySource(value = {"classpath:data/application.properties"})
+@ComponentScan(
+    basePackages = {"com.nab.pos.config", "com.nab.pos.endpoint.controller", "com.nab.pos.core"})
+@PropertySource(value = {"classpath:data/application.properties"}) // ok
 public class POSHbnConfig {
 
   @Autowired
@@ -33,7 +35,7 @@ public class POSHbnConfig {
   public LocalSessionFactoryBean sessionFactory() {
     LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
     sessionFactory.setDataSource(dataSource());
-    sessionFactory.setPackagesToScan(new String[] {"com.nab.posprototype.model"});
+    sessionFactory.setPackagesToScan(new String[] {"com.nab.pos.business.model"});
     sessionFactory.setHibernateProperties(hibernateProperties());
     return sessionFactory;
   }
