@@ -43,13 +43,29 @@
 		<module>erpint-repository</module>
 	</modules>
 
+	<properties>
+		<pos.project.build.sourceEncoding>UTF-8</pos.project.build.sourceEncoding>
+	
+		<pos.maven.version>3.5</pos.maven.version>
+		<pos.java.version>1.8</pos.java.version>
+		<pos.spring.version>4.3.6.RELEASE</pos.spring.version>
+		<pos.jackson.version>2.8.7</pos.jackson.version>
+		<pos.c3p0.version>0.9.1.2</pos.c3p0.version>
+		<pos.hibernate.version>5.1.3.Final</pos.hibernate.version>
+		<pos.postgres.driver.version>9.4.1212</pos.postgres.driver.version>
+		<pos.log4j.version>1.2.17</pos.log4j.version>
+		<pos.javax.servlet.version>3.1.0</pos.javax.servlet.version>
+	</properties>
+
+
+
 	<dependencies>
 
 		<!-- ======================================= LOGGING ====================================== -->
 		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
-			<version>1.2.17</version>
+			<version>${pos.log4j.version}</version>
 			<!-->scope>runtime</scope -->
 		</dependency>
 
@@ -61,10 +77,10 @@
 
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.5</version>
+				<version>${pos.maven.version}</version>
 				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
+					<source>${pos.java.version}</source>
+					<target>${pos.java.version}</target>
 				</configuration>
 			</plugin>
 

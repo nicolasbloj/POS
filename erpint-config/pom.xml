@@ -2,9 +2,9 @@
 <project
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
 	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-	
+
 	<modelVersion>4.0.0</modelVersion>
-	
+
 	<parent>
 		<groupId>com.nab</groupId>
 		<artifactId>pos</artifactId>
@@ -15,22 +15,25 @@
 
 	<name>erpint-config</name>
 	<url>http://maven.apache.org</url>
+
 	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.build.sourceEncoding>${pos.project.build.sourceEncoding}</project.build.sourceEncoding>
+		<maven.version>${pos.maven.version}</maven.version>
+		<java.version>${pos.java.version}</java.version>
 	</properties>
-	
+
 	<dependencies>
 	</dependencies>
-	
+
 	<build>
 		<finalName>erpint-config</finalName>
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.5</version>
+				<version>${maven.version}</version>
 				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
 				</configuration>
 			</plugin>
 		</plugins>

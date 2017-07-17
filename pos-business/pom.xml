@@ -16,9 +16,10 @@
 	<url>http://maven.apache.org</url>
 
 	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<java.version>1.8</java.version>
-		<hibernate.version>5.1.3.Final</hibernate.version>
+		<project.build.sourceEncoding>${pos.project.build.sourceEncoding}</project.build.sourceEncoding>
+		<maven.version>${pos.maven.version}</maven.version>
+		<java.version>${pos.java.version}</java.version>
+		<hibernate.version>${pos.hibernate.version}</hibernate.version>
 	</properties>
 
 	<dependencies>
@@ -35,10 +36,10 @@
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.5</version>
+				<version>${maven.version}</version>
 				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
 				</configuration>
 			</plugin>
 		</plugins>

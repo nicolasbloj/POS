@@ -16,21 +16,25 @@
 	<url>http://maven.apache.org</url>
 
 	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<java.version>1.8</java.version>
-		<spring.version>4.3.6.RELEASE</spring.version>
-		<c3p0.version>0.9.1.2</c3p0.version>
-		<hibernate.version>5.1.3.Final</hibernate.version>
-		<postgres.driver.version>9.4.1212</postgres.driver.version>
+		<project.build.sourceEncoding>${pos.project.build.sourceEncoding}</project.build.sourceEncoding>
+		<maven.version>${pos.maven.version}</maven.version>
+		<java.version>${pos.java.version}</java.version>
+
+		<spring.version>${pos.spring.version}</spring.version>
+		<c3p0.version>${pos.c3p0.version}</c3p0.version>
+		<hibernate.version>${pos.hibernate.version}</hibernate.version>
+		<postgres.driver.version>${pos.postgres.driver.version}</postgres.driver.version>
+		<javax.servlet.version>${pos.javax.servlet.vesion}</javax.servlet.version>
+
 	</properties>
 
 	<dependencies>
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
-			<version>3.1.0</version>
+			<version>${pos.javax.servlet.version}</version>
 		</dependency>
-		
+
 		<!-- ===================================== SPRING ===================================== -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -70,7 +74,7 @@
 			<artifactId>c3p0</artifactId>
 			<version>${c3p0.version}</version>
 		</dependency>
-		
+
 		<!-- ===================================== POSTGRESQL ===================================== -->
 		<dependency>
 			<groupId>org.postgresql</groupId>
@@ -91,10 +95,10 @@
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.5</version>
+				<version>${maven.version}</version>
 				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
 				</configuration>
 			</plugin>
 		</plugins>
