@@ -10,11 +10,10 @@ import org.springframework.test.util.ReflectionTestUtils;
 
 import com.nab.pos.common.dto.ProductDTO;
 import com.nab.pos.core.repository.ProductRepository;
-import com.nab.pos.core.repository.ProductRepositoryStub;
-import com.nab.pos.core.repository.ProductRepositoryUtil;
+import com.nab.pos.core.util.test.ProductRepositoryExpected;
+import com.nab.pos.core.util.test.ProductRepositoryStub;
 
 public class ProductServiceUnitTest {
-
 
   // Class
   private ProductService service;
@@ -45,7 +44,7 @@ public class ProductServiceUnitTest {
 
   @Test
   public void list() {
-    List<ProductDTO> expectedProductList = ProductRepositoryUtil.getExpectedProductList_list();
+    List<ProductDTO> expectedProductList = ProductRepositoryExpected.getExpectedProductList();
 
 
     // stubing mock
@@ -56,10 +55,10 @@ public class ProductServiceUnitTest {
     // ProductRepository
 
 
-    List<ProductDTO> actualiProductList = service.list();
+    List<ProductDTO> actualProductList = service.list();
 
 
-    assertEquals(expectedProductList.size(), actualiProductList.size());
+    assertEquals(expectedProductList.size(), actualProductList.size());
 
 
   }

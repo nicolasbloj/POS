@@ -1,9 +1,10 @@
-package com.nab.pos.core.repository;
+package com.nab.pos.core.util.test;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import com.nab.pos.business.model.Product;
+import com.nab.pos.core.repository.ProductRepository;
 
 public class ProductRepositoryStub implements ProductRepository {
 

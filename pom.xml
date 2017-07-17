@@ -23,11 +23,9 @@
 		</developer>
 	</developers>
 
-
 	<scm>
 		<url>https://github.com/nicolasbloj/POS</url>
 	</scm>
-
 
 	<modules>
 		<module>pos-business</module>
@@ -55,13 +53,48 @@
 		<pos.postgres.driver.version>9.4.1212</pos.postgres.driver.version>
 		<pos.log4j.version>1.2.17</pos.log4j.version>
 		<pos.javax.servlet.version>3.1.0</pos.javax.servlet.version>
-		<pos.junit.version>4.11</pos.junit.version>
+		<pos.junit.version>4.12</pos.junit.version>
 		<pos.hamcrest.version>1.3</pos.hamcrest.version>
 		<pos.mockito.version>1.9.5</pos.mockito.version>
 	</properties>
 
 	<dependencies>
 	
+		<!-- ===================================== TEST ===================================== -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${pos.spring.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-core</artifactId>
+			<version>${pos.mockito.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hamcrest</groupId>
+			<artifactId>hamcrest-all</artifactId>
+			<version>${pos.hamcrest.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${pos.junit.version}</version>
+			<scope>test</scope>
+			<exclusions>
+				<exclusion>
+					<artifactId>hamcrest-core</artifactId>
+					<groupId>org.hamcrest</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
 		<!-- ======================================= LOGGING ====================================== -->
 		<dependency>
 			<groupId>log4j</groupId>
