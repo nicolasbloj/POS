@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.nab.pos.business.model.Product;
 import com.nab.pos.common.dto.ProductDTO;
 import com.nab.pos.common.dto.converter.ProductConverter;
+import com.nab.pos.common.util.exception.ConverterException;
 import com.nab.pos.core.repository.ProductRepository;
 
 
@@ -38,12 +39,19 @@ public class ProductServiceImpl implements ProductService {
     List<ProductDTO> productsDTO = new ArrayList<>();
 
     products.forEach(
-        (final Product product) -> productsDTO.add(ProductConverter.convertToDTO(product)));
+        (final Product product) -> {
+          try {
+            productsDTO.add(ProductConverter.convertToDTO(product));
+          } catch (ConverterException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+          }
+        });
 
     return productsDTO;
   }
 
-  public ProductDTO getByKey(Integer id) {
+  public ProductDTO getByKey(Integer id) throws ConverterException {
     Product product = repository.getByKey(id);
     try {
       return ProductConverter.convertToDTO(product);
