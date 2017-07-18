@@ -1,6 +1,7 @@
 package com.nab.pos.core.service;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 import java.util.List;
 
@@ -53,8 +54,13 @@ public class ProductServiceIntegrationTest {
 
   }
 
+  /*
+   * Es importante que el nombre de los tests comience o acabe por la palabra Test, ya que algunas
+   * herramientas que lanzan tests de forma automatizada, como Sonar, utilizan esta marca para
+   * detectar qué clases ejecutar.
+   */
   @Test
-  public void list() {
+  public void testList() {
 
     List<ProductDTO> expectedProductList = ProductRepositoryExpected.getExpectedProductList();
 
@@ -63,6 +69,17 @@ public class ProductServiceIntegrationTest {
     assertEquals(expectedProductList.size(), actualProductList.size());
 
     // Controlar tambien los datos internos a cada array.
+
+    for (ProductDTO productDTO : expectedProductList) {
+      ProductDTO productDTO_exp = productDTO;
+      ProductDTO productDTO_act =
+          actualProductList.get(expectedProductList.indexOf(productDTO_exp));
+      assertNotNull(productDTO_exp);
+      assertNotNull(productDTO_act);
+      assertEquals(productDTO_exp.getCode(), productDTO_act.getCode());
+      assertEquals(productDTO_exp.getDescription(), productDTO_act.getDescription());
+    }
+
   }
 
 }
