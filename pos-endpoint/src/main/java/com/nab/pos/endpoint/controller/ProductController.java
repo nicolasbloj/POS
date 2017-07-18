@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.nab.pos.common.dto.ProductDTO;
+import com.nab.pos.common.util.exception.ConverterException;
 import com.nab.pos.core.service.ProductService;
 
 @RestController
@@ -67,7 +68,7 @@ public class ProductController {
 
   @RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = "application/json")
   @ResponseStatus(value = HttpStatus.OK)
-  public ResponseEntity<ProductDTO> getByKey(@PathVariable Integer id) {
+  public ResponseEntity<ProductDTO> getByKey(@PathVariable Integer id) throws ConverterException {
 
     ProductDTO productDTO = service.getByKey(id);
     HttpStatus httpStatus = HttpStatus.OK;

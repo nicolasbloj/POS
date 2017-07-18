@@ -2,14 +2,26 @@ package com.nab.pos.common.dto.converter;
 
 import com.nab.pos.business.model.Product;
 import com.nab.pos.common.dto.ProductDTO;
+import com.nab.pos.common.util.exception.ConverterException;
 
+// Conviene que a esta clase la maneje spring?
 public class ProductConverter {
 
-  public static ProductDTO convertToDTO(Product product) {
+
+  public static ProductDTO convertToDTO(Product product) throws ConverterException {
+    if (product == null) {
+      throw new ConverterException(
+          "product no puede ser converido a productDTO ya que product es nulo");
+    }
     return new ProductDTO(product.getCode(), product.getDescription());
   }
 
-  public static Product convertDTO(ProductDTO productDTO) {
+  // fromDTOToEntity
+  public static Product convertDTO(ProductDTO productDTO) throws ConverterException {
+    if (productDTO == null) {
+      throw new ConverterException(
+          "productDTO no puede ser converido a product ya que productDTO es nulo");
+    }
     return new Product(productDTO.getCode(), productDTO.getDescription());
   }
 
