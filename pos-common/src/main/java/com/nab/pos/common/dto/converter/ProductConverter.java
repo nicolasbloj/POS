@@ -13,7 +13,7 @@ public class ProductConverter {
       throw new ConverterException(
           "product no puede ser converido a productDTO ya que product es nulo");
     }
-    return new ProductDTO(product.getCode(), product.getDescription());
+    return new ProductDTO(product.getId(), product.getCode(), product.getDescription());
   }
 
   // fromDTOToEntity

@@ -1,7 +1,9 @@
 package com.nab.pos.endpoint.controller;
 
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,30 +34,40 @@ public class ProductController {
 
   @RequestMapping(value = "/add", method = RequestMethod.POST, consumes = "application/json",
       produces = "application/json")
-  public ResponseEntity<String> add(@RequestBody(required = true) ProductDTO productDTO) {
-    ResponseEntity<String> response;
+  public ResponseEntity<Map<String, Integer>> add(
+      @RequestBody(required = true) ProductDTO productDTO) {
+
+    ResponseEntity<Map<String, Integer>> response = null;
 
     logger.info(
         "productDTO -code: " + productDTO.getCode() + " -desc: " + productDTO.getDescription());
 
+    Map<String, Integer> map = new HashMap<String, Integer>();
+    HttpStatus httpStatus = HttpStatus.OK;
+
     try {
       Integer id = service.add(productDTO);
-      if (id == -1)
-        response = new ResponseEntity<String>(new StringBuilder(50)
-            .append("No se pudo insertar el producto ").append(productDTO.getCode()).toString(),
-            HttpStatus.INTERNAL_SERVER_ERROR);
+      if (id == -1) {
+        map.put(new StringBuilder(50).append("No se pudo insertar el producto ")
+            .append(productDTO.getCode()).toString(), -1);
+        httpStatus = HttpStatus.INTERNAL_SERVER_ERROR;
+      }
 
-      response = new ResponseEntity<>(new StringBuilder(50).append("El producto ").append(id)
-          .append(" fue correctamente insertado").toString(), HttpStatus.OK);
+      map.put(new StringBuilder(50).append("El producto ").append(id)
+          .append(" fue correctamente insertado").toString(), id);
+
+      response = new ResponseEntity<>(map, httpStatus);
+
 
     } catch (Exception e) {
       logger
           .error(new StringBuilder(150).append("An error happens while trying to add the product ")
               .append(productDTO.getCode()).toString());
-      response = new ResponseEntity<>(
-          new StringBuilder(50).append("An error happens while trying to add the product ")
-              .append(productDTO.getCode()).toString(),
-          HttpStatus.INTERNAL_SERVER_ERROR);
+
+      httpStatus = HttpStatus.INTERNAL_SERVER_ERROR;
+
+      map.put(new StringBuilder(50).append("An error happens while trying to add the product ")
+          .append(productDTO.getCode()).toString(), -2);
     }
 
     return response;
