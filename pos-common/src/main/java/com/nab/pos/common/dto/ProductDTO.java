@@ -1,31 +1,28 @@
 package com.nab.pos.common.dto;
 
+import lombok.Getter;
+
 public class ProductDTO {
 
+  @Getter
+  private int id;
+  @Getter
   private String code;
+  @Getter
   private String description;
 
   public ProductDTO() {}
 
+  // to add
   public ProductDTO(String code, String description) {
     this.code = code;
     this.description = description;
   }
 
-
-  public String getCode() {
-    return code;
-  }
-
-  public String getDescription() {
-    return description;
-  }
-
-  public void setCode(String code) {
+  // from get a product
+  public ProductDTO(int id, String code, String description) {
+    this.id = id;
     this.code = code;
-  }
-
-  public void setDescription(String description) {
     this.description = description;
   }
 

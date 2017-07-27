@@ -60,7 +60,7 @@
 	</properties>
 
 	<dependencies>
-	
+
 		<!-- ===================================== TEST ===================================== -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -102,6 +102,13 @@
 			<artifactId>log4j</artifactId>
 			<version>${pos.log4j.version}</version>
 			<!-->scope>runtime</scope -->
+		</dependency>
+		<!-- ===================================== LOMBOK ===================================== -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>${pos.lombok.version}</version>
+			<scope>provided</scope>
 		</dependency>
 
 	</dependencies>
