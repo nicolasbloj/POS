@@ -56,6 +56,7 @@
 		<pos.junit.version>4.12</pos.junit.version>
 		<pos.hamcrest.version>1.3</pos.hamcrest.version>
 		<pos.mockito.version>1.9.5</pos.mockito.version>
+		<pos.lombok.version>1.12.4</pos.lombok.version>
 	</properties>
 
 	<dependencies>

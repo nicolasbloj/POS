@@ -20,6 +20,7 @@
 		<maven.version>${pos.maven.version}</maven.version>
 		<java.version>${pos.java.version}</java.version>
 		<hibernate.version>${pos.hibernate.version}</hibernate.version>
+		<lombok.version>${pos.lombok.version}</lombok.version>
 	</properties>
 
 	<dependencies>
@@ -29,7 +30,17 @@
 			<artifactId>hibernate-core</artifactId>
 			<version>${hibernate.version}</version>
 		</dependency>
+		<!-- ===================================== LOMBOK ===================================== -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>${lombok.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
 	</dependencies>
+
+
 
 	<build>
 		<finalName>pos-business</finalName>
