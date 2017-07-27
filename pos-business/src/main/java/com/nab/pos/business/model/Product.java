@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import lombok.Getter;
 
 @Entity
 @Table(name = "PRODUCTO")
@@ -17,13 +18,15 @@ public class Product implements Serializable {
 
   private static final long serialVersionUID = 1L;
 
-
   @Id
   @GeneratedValue(strategy = IDENTITY)
+  @Getter
   private Integer id;
   @Column(name = "codigo")
+  @Getter
   private String code;
   @Column(name = "descripcion")
+  @Getter
   private String description;
 
   public Product() {
@@ -34,18 +37,6 @@ public class Product implements Serializable {
     super();
     this.code = code;
     this.description = description;
-  }
-
-  public Integer getId() {
-    return id;
-  }
-
-  public String getCode() {
-    return code;
-  }
-
-  public String getDescription() {
-    return description;
   }
 
 }
