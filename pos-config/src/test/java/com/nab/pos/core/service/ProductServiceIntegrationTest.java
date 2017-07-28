@@ -24,7 +24,6 @@ import com.nab.pos.core.util.test.ProductRepositoryExpected;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = {POSConfig.class, POSHbnConfig.class})
 public class ProductServiceIntegrationTest {
-  // No usamos mock ni stub
 
   // Class
   @Autowired
@@ -42,8 +41,8 @@ public class ProductServiceIntegrationTest {
 
     try {
 
-      service.add(new ProductDTO("AA01", "AIRE"));
-      service.add(new ProductDTO("FF01", "FOCO"));
+      service.addOrUpdate(new ProductDTO("AA01", "AIRE"));
+      service.addOrUpdate(new ProductDTO("FF01", "FOCO"));
 
 
     } catch (Exception e) {

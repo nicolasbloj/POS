@@ -32,21 +32,29 @@ public class ProductController {
   // @Qualifier("productServiceImpl")
   ProductService service;
 
-  @RequestMapping(value = "/add", method = RequestMethod.POST, consumes = "application/json",
+  // En converter dto a product esta la clave.
+  // si dto.id > 0 entonces
+  // producto será creado con id,codigo y descripcion y luego repository persistirá el mismo.
+  @RequestMapping(value = "/addOrUpdate", method = RequestMethod.PUT, consumes = "application/json",
       produces = "application/json")
   public ResponseEntity<Map<String, Integer>> add(
       @RequestBody(required = true) ProductDTO productDTO) {
 
     ResponseEntity<Map<String, Integer>> response = null;
 
-    logger.info(
-        "productDTO -code: " + productDTO.getCode() + " -desc: " + productDTO.getDescription());
+    logger.info("productDTO -id: " + productDTO.getId() + "productDTO -code: "
+        + productDTO.getCode() + " -desc: " + productDTO.getDescription());
+
+    if (productDTO.getId() != null) {
+      logger.info("productDTO -id: " + productDTO.getId());
+
+    }
 
     Map<String, Integer> map = new HashMap<String, Integer>();
     HttpStatus httpStatus = HttpStatus.OK;
 
     try {
-      Integer id = service.add(productDTO);
+      Integer id = service.addOrUpdate(productDTO);
       if (id == -1) {
         map.put(new StringBuilder(50).append("No se pudo insertar el producto ")
             .append(productDTO.getCode()).toString(), -1);

@@ -36,8 +36,8 @@ public abstract class RepositoryHbn<PK extends Serializable, E>
         .getActualTypeArguments()[1];
   }
 
-  public E persist(E entity) {
-    getSession().persist(entity);
+  public E saveOrUpdate(E entity) {
+    getSession().saveOrUpdate(entity);
     getSession().flush();
     return entity;
   }

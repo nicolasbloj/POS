@@ -39,4 +39,12 @@ public class Product implements Serializable {
     this.description = description;
   }
 
+  // for put method
+  public Product(Integer id, String code, String description) {
+    super();
+    this.id = id;
+    this.code = code;
+    this.description = description;
+  }
+
 }

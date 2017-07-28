@@ -7,7 +7,6 @@ import com.nab.pos.common.util.exception.ConverterException;
 // Conviene que a esta clase la maneje spring?
 public class ProductConverter {
 
-
   public static ProductDTO convertToDTO(Product product) throws ConverterException {
     if (product == null) {
       throw new ConverterException(
@@ -22,7 +21,12 @@ public class ProductConverter {
       throw new ConverterException(
           "productDTO no puede ser converido a product ya que productDTO es nulo");
     }
-    return new Product(productDTO.getCode(), productDTO.getDescription());
+
+    if (productDTO.getId() != null && productDTO.getId() > 0) { // put method
+      return new Product(productDTO.getId(), productDTO.getCode(), productDTO.getDescription());
+    } else {
+      return new Product(productDTO.getCode(), productDTO.getDescription());
+    }
   }
 
 }
