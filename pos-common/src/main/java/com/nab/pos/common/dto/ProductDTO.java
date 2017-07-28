@@ -5,7 +5,7 @@ import lombok.Getter;
 public class ProductDTO {
 
   @Getter
-  private int id;
+  private Integer id;
   @Getter
   private String code;
   @Getter
@@ -20,7 +20,7 @@ public class ProductDTO {
   }
 
   // from get a product
-  public ProductDTO(int id, String code, String description) {
+  public ProductDTO(Integer id, String code, String description) {
     this.id = id;
     this.code = code;
     this.description = description;

@@ -23,9 +23,9 @@ public class ProductServiceImpl implements ProductService {
   @Qualifier("productRepositoryHbn")
   ProductRepository repository;
 
-  public Integer add(ProductDTO productDTO) {
+  public Integer addOrUpdate(ProductDTO productDTO) {
     try {
-      Product productIn = repository.persist(ProductConverter.convertDTO(productDTO));
+      Product productIn = repository.saveOrUpdate(ProductConverter.convertDTO(productDTO));
       return productIn.getId();
     } catch (Exception e) {
       e.printStackTrace();
@@ -38,15 +38,14 @@ public class ProductServiceImpl implements ProductService {
     List<Product> products = repository.list();
     List<ProductDTO> productsDTO = new ArrayList<>();
 
-    products.forEach(
-        (final Product product) -> {
-          try {
-            productsDTO.add(ProductConverter.convertToDTO(product));
-          } catch (ConverterException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-          }
-        });
+    products.forEach((final Product product) -> {
+      try {
+        productsDTO.add(ProductConverter.convertToDTO(product));
+      } catch (ConverterException e) {
+        // TODO Auto-generated catch block
+        e.printStackTrace();
+      }
+    });
 
     return productsDTO;
   }

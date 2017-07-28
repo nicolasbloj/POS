@@ -26,9 +26,10 @@ public class ProductRepositoryStub implements ProductRepository {
   }
 
   @Override
-  public Product persist(Product entity) throws Exception {
+  public Product saveOrUpdate(Product entity) throws Exception {
     // TODO Auto-generated method stub
     return null;
   }
+
 
 }

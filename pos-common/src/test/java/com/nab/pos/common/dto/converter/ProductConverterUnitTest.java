@@ -11,6 +11,8 @@ import com.nab.pos.common.util.exception.ConverterException;
 
 public class ProductConverterUnitTest {
 
+  private static final Integer ID = 1;
+
   private static final String CODE = "AA01";
 
   private static final String DESCRIPTION = "AIRE";
@@ -21,14 +23,15 @@ public class ProductConverterUnitTest {
 
   @Before
   public void setUp() {
-    product = new Product(CODE, DESCRIPTION);
-    productDTO = new ProductDTO(CODE, DESCRIPTION);
+    product = new Product(ID, CODE, DESCRIPTION);
+    productDTO = new ProductDTO(ID, CODE, DESCRIPTION);
   }
 
   @Test
   public void testConvertToDTO() throws ConverterException {
     ProductDTO aproductDTO = ProductConverter.convertToDTO(product);
     Assert.assertNotNull(aproductDTO);
+    Assert.assertEquals(aproductDTO.getId(), ID);
     Assert.assertEquals(aproductDTO.getCode(), CODE);
     Assert.assertEquals(aproductDTO.getDescription(), DESCRIPTION);
     Assert.assertTrue(aproductDTO.getDescription().equals(DESCRIPTION));
@@ -49,6 +52,5 @@ public class ProductConverterUnitTest {
     productDTO.getCode().equals(CODE);
 
   }
-
 
 }
