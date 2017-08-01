@@ -42,8 +42,8 @@ public class ProductController {
 
     ResponseEntity<Map<String, Integer>> response = null;
 
-    logger.info("productDTO -id: " + productDTO.getId() + "productDTO -code: "
-        + productDTO.getCode() + " -desc: " + productDTO.getDescription());
+    logger.info(
+        "productDTO -code: " + productDTO.getCode() + " -desc: " + productDTO.getDescription());
 
     if (productDTO.getId() != null) {
       logger.info("productDTO -id: " + productDTO.getId());
