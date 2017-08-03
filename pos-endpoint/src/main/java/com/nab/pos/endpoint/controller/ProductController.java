@@ -35,9 +35,21 @@ public class ProductController {
   // En converter dto a product esta la clave.
   // si dto.id > 0 entonces
   // producto será creado con id,codigo y descripcion y luego repository persistirá el mismo.
-  @RequestMapping(value = "/addOrUpdate", method = RequestMethod.PUT, consumes = "application/json",
+  @RequestMapping(value = "/add", method = RequestMethod.PUT, consumes = "application/json",
       produces = "application/json")
   public ResponseEntity<Map<String, Integer>> add(
+      @RequestBody(required = true) ProductDTO productDTO) {
+    return addOrUpdate(productDTO);
+  }
+
+  @RequestMapping(value = "/update", method = RequestMethod.PUT, consumes = "application/json",
+      produces = "application/json")
+  public ResponseEntity<Map<String, Integer>> update(
+      @RequestBody(required = true) ProductDTO productDTO) {
+    return addOrUpdate(productDTO);
+  }
+
+  private ResponseEntity<Map<String, Integer>> addOrUpdate(
       @RequestBody(required = true) ProductDTO productDTO) {
 
     ResponseEntity<Map<String, Integer>> response = null;
@@ -101,5 +113,37 @@ public class ProductController {
     return new ResponseEntity<>(productDTO, httpStatus);
 
   }
+
+  // recibimos solo id
+  @RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE,
+      consumes = "application/json", produces = "application/json")
+  public ResponseEntity<Map<String, Integer>> delete(
+      @RequestBody(required = true) @PathVariable("id") int productId) {
+
+    HttpStatus httpStatus = HttpStatus.OK;
+    String msg = "El producto eliminado correctamente.";
+    Map<String, Integer> map = new HashMap<String, Integer>();
+    Integer id = -1;
+
+    try {
+      ProductDTO productDTO = new ProductDTO(productId);
+      id = service.delete(productDTO);
+
+      if (id == -1) {
+        msg = (new StringBuilder(50).append("No se pudo eliminar el producto ")
+            .append(productDTO.getId()).toString());
+        httpStatus = HttpStatus.INTERNAL_SERVER_ERROR;
+      }
+
+    } catch (Exception e) {
+      msg = "El producto no fue eliminado.";
+      httpStatus = HttpStatus.INTERNAL_SERVER_ERROR;
+    }
+
+    map.put(msg, id);
+    return new ResponseEntity<>(map, httpStatus);
+
+  }
+
 
 }

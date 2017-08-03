@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -14,8 +15,13 @@ import com.nab.pos.core.repository.operation.PersistenceRepository;
 import com.nab.pos.core.repository.operation.SearchRepository;
 
 
+
 public abstract class RepositoryHbn<PK extends Serializable, E>
     implements SearchRepository<PK, E>, PersistenceRepository<PK, E> {
+
+
+  private Logger logger = Logger.getLogger(RepositoryHbn.class);
+
 
   @Autowired
   private SessionFactory sessionFactory;
@@ -46,6 +52,13 @@ public abstract class RepositoryHbn<PK extends Serializable, E>
     // return (List<E>) getSession().createQuery("from
     // "+persistentClass.getName()).list();
     return findByCriteria();
+  }
+
+  public E delete(E entity) {
+    logger.info("delete");
+    getSession().delete(entity);
+    getSession().flush();
+    return entity;
   }
 
   @SuppressWarnings("unchecked")

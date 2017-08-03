@@ -19,6 +19,8 @@ import com.nab.pos.core.repository.ProductRepository;
 @Transactional
 public class ProductServiceImpl implements ProductService {
 
+  // private Logger logger = Logger.getLogger(ProductService.class);
+
   @Autowired
   @Qualifier("productRepositoryHbn")
   ProductRepository repository;
@@ -59,6 +61,19 @@ public class ProductServiceImpl implements ProductService {
       // logging...
       return null;
     }
+
+  }
+
+  @Override
+  public Integer delete(ProductDTO productDTO) {
+    try {
+      Product productDel = repository.delete(ProductConverter.convertDTO(productDTO));
+      return productDel.getId();
+    } catch (Exception e) {
+      e.printStackTrace();
+      return -1;
+    }
+
 
   }
 

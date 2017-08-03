@@ -8,7 +8,8 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 @EnableWebMvc
 @ComponentScan(basePackages = {"com.nab.pos.config", "com.nab.pos.endpoint.controller",
     "com.nab.pos.core", "com.nab.pos.repository"})
-public class POSConfig {
+public class POSConfig 
+{
 
 
 }
