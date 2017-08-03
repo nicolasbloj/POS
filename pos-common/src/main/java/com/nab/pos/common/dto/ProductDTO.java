@@ -13,6 +13,11 @@ public class ProductDTO {
 
   public ProductDTO() {}
 
+  // to delete
+  public ProductDTO(Integer id) {
+    this.id = id;
+  }
+
   // to add
   public ProductDTO(String code, String description) {
     this.code = code;

@@ -6,7 +6,7 @@ import java.util.List;
 import com.nab.pos.common.util.exception.ConverterException;
 
 // interface-segregation principle (ISP)
-public interface SearchService<PK extends Serializable, E, D> {
+public interface SearchService<PK extends Serializable, D> {
 
   public List<D> list();
 

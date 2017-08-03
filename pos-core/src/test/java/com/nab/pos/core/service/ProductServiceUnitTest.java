@@ -51,7 +51,7 @@ public class ProductServiceUnitTest {
   }
 
   @Test
-  public void list() {
+  public void testList() {
     List<ProductDTO> expectedProductList = ProductRepositoryExpected.getExpectedProductList();
 
 
