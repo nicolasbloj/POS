@@ -19,7 +19,9 @@
 		<project.build.sourceEncoding>${pos.project.build.sourceEncoding}</project.build.sourceEncoding>
 		<maven.version>${pos.maven.version}</maven.version>
 		<java.version>${pos.java.version}</java.version>
+		<jackson.version>${pos.jackson.version}</jackson.version>
 	</properties>
+
 
 	<!-- ===================================== POS ===================================== -->
 	<dependencies>
@@ -28,6 +30,15 @@
 			<artifactId>pos-business</artifactId>
 			<version>1.0.0.0</version>
 		</dependency>
+		<!-- ===================================== JACKSON ===================================== -->
+		<!-- for use @JsonFormat -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>${jackson.version}</version>
+		</dependency>
+
+
 	</dependencies>
 
 	<build>
