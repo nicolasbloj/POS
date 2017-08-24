@@ -10,14 +10,13 @@ import org.junit.Test;
 import org.springframework.test.util.ReflectionTestUtils;
 
 import com.nab.pos.common.dto.ClientDTO;
-import com.nab.pos.common.util.LoggerFactory;
 import com.nab.pos.core.repository.ClientRepository;
 import com.nab.pos.core.util.test.ClientRepositoryExpected;
 import com.nab.pos.core.util.test.ClientRepositoryStub;
 
 public class ClientServiceUnitTest {
 
-  private Logger logger = LoggerFactory.getLogger(ClientServiceUnitTest.class);
+  private Logger logger = Logger.getLogger(ClientServiceUnitTest.class);
 
   private ClientService service;
 

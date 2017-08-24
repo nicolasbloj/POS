@@ -11,14 +11,13 @@ import org.junit.Test;
 import org.springframework.test.util.ReflectionTestUtils;
 
 import com.nab.pos.common.dto.ProductDTO;
-import com.nab.pos.common.util.LoggerFactory;
 import com.nab.pos.core.repository.ProductRepository;
 import com.nab.pos.core.util.test.ProductRepositoryExpected;
 import com.nab.pos.core.util.test.ProductRepositoryStub;
 
 public class ProductServiceUnitTest {
 
-  private Logger logger = LoggerFactory.getLogger(ProductServiceUnitTest.class);
+  private Logger logger = Logger.getLogger(ProductServiceUnitTest.class);
 
   // Class
   private ProductService service;
