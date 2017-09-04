@@ -23,6 +23,7 @@
 
 		<spring.version>${pos.spring.version}</spring.version>
 		<jackson.version>${pos.jackson.version}</jackson.version>
+		<jsonpath.version>${pos.jsonpath.version}</jsonpath.version>
 	</properties>
 
 	<dependencies>
@@ -40,6 +41,15 @@
 			<!--version>2.8.1</version -->
 			<version>${jackson.version}</version>
 		</dependency>
+
+		<!-- ===================================== JSONPATH ===================================== -->
+		<dependency>
+			<groupId>com.jayway.jsonpath</groupId>
+			<artifactId>json-path</artifactId>
+			<version>${jsonpath.version}</version>
+			<!--scope>test</scope --><!-- scope problem maven -->
+		</dependency>
+
 
 		<!-- ===================================== SPRING ===================================== -->
 		<dependency>
