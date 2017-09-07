@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Index;
 import javax.persistence.Table;
 
 import lombok.EqualsAndHashCode;
@@ -11,7 +12,7 @@ import lombok.Getter;
 import lombok.ToString;
 
 @Entity
-@Table(name = "CLIENTE")
+@Table(name = "CLIENTE", indexes = {@Index(columnList = "codigo", name = "codigo_hidx")})
 @ToString(callSuper = true)
 @EqualsAndHashCode(callSuper = true)
 public class Client extends LegalPerson implements Serializable {
